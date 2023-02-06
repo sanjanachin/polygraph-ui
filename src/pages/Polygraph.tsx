@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Polygraph() {
-  return <div>Polygraph homepage</div>;
+  return <div data-testid="home-page">Polygraph homepage</div>;
 }
 
 export default Polygraph;
