@@ -67,6 +67,10 @@
     "prettier-eslint": "^15.0.1"
   },
   "jest": {
+    "coveragePathIgnorePatterns": [
+      "index.jsx",
+      "reportWebVitals.js"
+    ],
     "coverageThreshold": {
       "global": {
         "lines": 90,
