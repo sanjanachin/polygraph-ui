@@ -42,7 +42,8 @@
       "quotes": ["error", "single"],
       "prettier/prettier": [
         "error", {"singleQuote": true, "endOfLine": "auto"}
-      ]
+      ],
+      "react/jsx-no-duplicate-props": ["error", { "ignoreCase": false }]
     }
   },
   "browserslist": {
