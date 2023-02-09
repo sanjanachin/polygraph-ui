@@ -8,11 +8,11 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
-import profanity from './constants';
+import { profanity, MAX_WORD_COUNT } from './constants';
 import checkMisinformation from '../api/api';
 
 const instructionsAlert = (
-  <Alert severity="info">
+  <Alert severity="info" data-testid="misinformation-detector-info-alert">
     <AlertTitle>
       <strong>Welcome to Polygraph!</strong>
     </AlertTitle>
@@ -22,7 +22,10 @@ const instructionsAlert = (
 );
 
 const noMisinformationAlert = (
-  <Alert severity="success">
+  <Alert
+    severity="success"
+    data-testid="misinformation-detector-no-misinformation-alert"
+  >
     <AlertTitle>
       <strong>No misinformation detected!</strong>
     </AlertTitle>
@@ -31,7 +34,10 @@ const noMisinformationAlert = (
 );
 
 const misinformationAlert = (
-  <Alert severity="warning">
+  <Alert
+    severity="warning"
+    data-testid="misinformation-detector-misinformation-alert"
+  >
     <AlertTitle>
       <strong>Misinformation detected!</strong>
     </AlertTitle>
@@ -86,16 +92,16 @@ function MisinformationDetector() {
           <Box
             sx={{
               display: 'flex',
-              flexDirection: 'row',
+              flexDirection: { xl: 'row', lg: 'row', sm: 'column' },
               gap: '8px',
             }}
           >
             <Tabs
-              value={countWords(text) > 500 ? 0 : false}
+              value={countWords(text) > MAX_WORD_COUNT ? 0 : false}
               TabIndicatorProps={{ sx: { background: 'red' } }}
             >
               <Tab
-                label={`${countWords(text)}/500 words`}
+                label={`${countWords(text)}/${MAX_WORD_COUNT} words`}
                 disableRipple
                 disableFocusRipple
               />
@@ -117,8 +123,11 @@ function MisinformationDetector() {
               />
             </Tabs>
             <Button
+              data-testid="misinformation-detector-submit-button"
               sx={{ marginLeft: 'auto', marginRight: '8px' }}
-              disabled={containsProfanity(text) || countWords(text) > 500}
+              disabled={
+                containsProfanity(text) || countWords(text) > MAX_WORD_COUNT
+              }
               onClick={submit}
             >
               Submit

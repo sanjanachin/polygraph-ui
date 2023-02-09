@@ -19,11 +19,16 @@ function Polygraph() {
           marginRight: '10%',
         }}
       >
-        <Box sx={{ flexBasis: '75%', marginRight: '10px' }}>
+        <Box
+          sx={{ flexBasis: '75%', marginRight: '10px' }}
+          data-testid="history-parent"
+        >
           <MisinformationDetector />
         </Box>
 
-        <Card sx={{ flexBasis: '25%' }}>history</Card>
+        <Card sx={{ flexBasis: '25%' }} data-testid="user-history-parent">
+          history
+        </Card>
       </Box>
     </div>
   );

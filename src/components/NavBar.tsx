@@ -15,7 +15,11 @@ const pages = [
 
 function NavBar() {
   return (
-    <AppBar position="static" sx={{ boxShadow: 'none' }}>
+    <AppBar
+      position="static"
+      sx={{ boxShadow: 'none' }}
+      data-testid="navigation-bar-parent"
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
