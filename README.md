@@ -11,21 +11,31 @@ Our project is a website where users can input text (such as facts or news) and 
 
 ### Project Structure:
 Main Directory Contents:
-- /src/App.js - React router
--  /src/pages/ - Top level pages
--  /src/api/ - Handling for request/response with polygraph backend
--  /public/ - Static assets (images, icons, etc)
+- /src/App.js - React router for web page views
+- /src/pages/ - Top level web page views - About, Login, and Polygraph
+- /src/api/ - Api handling for request/response with Polygraph backend
+- /public/ - Static assets (images, icons, etc)
 
-### Setup:
-First, make sure Node.js and npm are installed. After downloading the repository, run
-```
-npm install
-```
-in the root directory.
+## Setup:
+1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/download/)
+
+2. Clone this repository
+
+3. Navigate into the project directory
+
+   ```bash
+   $ cd polygraph-ui
+   ```
+
+4. Install the npm package manager
+   ```bash
+   $ npm install
+   ```
 
 ### Local Testing:
-To test locally, run
-```
-npm run start
-```
-in the root directory to start a local server.
+1. Make sure you have cloned and are running the [polygraph backend](https://github.com/sanjanachin/polygraph)
+
+2. Run the app locally using the following command
+   ```bash
+   $ npm run start
+   ```
