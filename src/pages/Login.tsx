@@ -5,7 +5,7 @@ function Login() {
   return (
     <div data-testid="login-page">
       <NavBar />
-      Login page goes here
+      <h1>Login</h1>
     </div>
   );
 }

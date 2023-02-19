@@ -2,7 +2,9 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Polygraph from './pages/Polygraph';
 import About from './pages/About';
-import Login from './pages/Login';
+import Login from './pages/LoginPage';
+import firebase from './services/firebase';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function RouteList() {
   return (
