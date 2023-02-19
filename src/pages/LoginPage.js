@@ -1,8 +1,10 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import {
-    signInWithEmailAndPassword,
-    registerWithEmailAndPassword
+    registerWithEmailAndPassword,
+    auth
   } from "../services/firebase";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
   import Form from "react-bootstrap/Form";
   import Button from "react-bootstrap/Button";
   import Card from "react-bootstrap/Card";
@@ -11,6 +13,8 @@ import {
   import "../App.css";
   
   const Login = () => {
+    const provider = new GoogleAuthProvider();
+  
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -62,7 +66,7 @@ import {
                         </Button>
                         <Button
                           variant="outline-primary"
-                          onClick={signInWithGoogle}
+                          onClick={ () => signInWithPopup(auth, provider) }
                         >
                           <i className="fab fa-google"></i>Sign-in with Goolge
                         </Button>

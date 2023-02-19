@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import RouteList from './RouteList';
-import firebase from './services/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './services/firebase';
+import Login from './pages/LoginPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = React.useState(null);
 
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
+  React.useEffect(() => {
+    auth.onAuthStateChanged((user) => {
       setUser (user);
     });
   }, []);
