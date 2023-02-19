@@ -4,7 +4,7 @@ import {
     registerWithEmailAndPassword,
     auth
   } from "../services/firebase";
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
   import Form from "react-bootstrap/Form";
   import Button from "react-bootstrap/Button";
   import Card from "react-bootstrap/Card";

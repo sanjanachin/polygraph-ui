@@ -5,7 +5,7 @@ import 'firebase/compat/auth';
 
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc } from 'firebase/firestore/lite';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDirvxTGs-Tk5lVPUzqJINb56kA6nd1n-c',
@@ -19,11 +19,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 var firebase = require('firebase/app');
-// var firebase_auth = require('firebase/auth');
-// var firebase_analytics = require('firebase/analytics');
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-// const analytics = firebase_analytics.getAnalytics(app);
 
 const db = getFirestore(app); // Initialize Cloud Firestore through Firebase
 
@@ -35,7 +32,7 @@ export default firebase;
 // User Registration
 const userRegistration = async (name, email, password) => {
   try {
-    const res = await auth.createUserWithEmailAndPassword(email, password);
+    const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
     await db.collection('users').add({
       uid: user.uid,
@@ -49,9 +46,9 @@ const userRegistration = async (name, email, password) => {
 };
 
 // Sign-in with Email/Password
-export const signInWithEmailAndPassword = async (email, password) => {
+export const polygraphSignInWithEmailAndPassword = async (email, password) => {
   try {
-    await auth.signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {
     alert(err.message);
   }
@@ -59,7 +56,7 @@ export const signInWithEmailAndPassword = async (email, password) => {
 
 export const resetPassword = async (email) => {
   try {
-    await auth.sendPasswordResetEmail(email);
+    await sendPasswordResetEmail(auth, email);
   } catch (err) {
     alert(err.message);
   }
@@ -67,7 +64,7 @@ export const resetPassword = async (email) => {
 
 export const registerWithEmailAndPassword = async (name, email, password) => {
   try {
-    const res = await auth.createUserWithEmailAndPassword(email, password);
+    const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
     await addDoc(collection(db, 'users'), {
       uid: user.uid,
