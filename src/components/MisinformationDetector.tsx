@@ -8,7 +8,8 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
-import { profanity, MAX_WORD_COUNT } from './constants';
+import Filter from 'bad-words';
+import MAX_WORD_COUNT from './constants';
 import checkMisinformation from '../api/api';
 
 const instructionsAlert = (
@@ -88,20 +89,14 @@ function MisinformationDetector() {
   const [alert, setAlert] = React.useState(instructionsAlert);
   const [text, setText] = React.useState('');
 
+  const filter = new Filter();
+
   const onTextUpdate = (event: any) => {
     setText(event.target.value);
     setAlert(instructionsAlert);
   };
 
-  const containsProfanity = (input: string) => {
-    const foundProfanity = profanity.filter((word) =>
-      input.toLowerCase().includes(word.toLowerCase())
-    );
-    if (foundProfanity.length) {
-      return true;
-    }
-    return false;
-  };
+  const containsProfanity = (input: string) => filter.isProfane(input);
 
   const submit = async () => {
     const request = { text };

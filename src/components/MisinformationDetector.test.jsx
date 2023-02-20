@@ -6,8 +6,9 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react';
+import { words as profanity } from 'bad-words/lib/lang.json';
 import MisinformationDetector from './MisinformationDetector';
-import { profanity, MAX_WORD_COUNT } from './constants';
+import MAX_WORD_COUNT from './constants';
 
 afterEach(() => {
   cleanup();
