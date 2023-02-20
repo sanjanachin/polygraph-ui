@@ -10,7 +10,7 @@ import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Filter from 'bad-words';
 import MAX_WORD_COUNT from './constants';
-import checkMisinformation from '../api/api';
+import { checkMisinformation } from '../api/api';
 
 const instructionsAlert = (
   <Alert severity="info" data-testid="misinformation-detector-info-alert">
