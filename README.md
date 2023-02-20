@@ -4,7 +4,6 @@
 Our project is a website where users can input text (such as facts or news) and check it for accuracy. We will fine tune a GPT-3 model to evaluate the accuracy of inputted text, and provide users with an evaluation of whether their text is accurate or not, along with an explanation of why. Our workflow will look something like this: a user logs in to the fact checker website using their credentials. Once they log in, they see a text box where they can input text and receive an evaluation of its accuracy. They can also view their history (which is their previously inputted text along with the corresponding evaluations).
 
 ### Features:
-### Features:
 1. User accounts. Users will be able to create accounts with which they can use to gain access to our website fact checker.
 
    i.  Non-operational: Firebase login authentication system not yet implemented
@@ -30,7 +29,7 @@ Main Directory Contents:
 - /public/ - Static assets (images, icons, etc)
 
 ## Setup:
-1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/download/)
+1. If you don’t have Node.js or npm installed, [install it from here](https://nodejs.org/en/download/)
 
 2. Clone this repository
 
@@ -40,7 +39,7 @@ Main Directory Contents:
    $ cd polygraph-ui
    ```
 
-4. Install the npm package manager
+4. Install dependencies
    ```bash
    $ npm install
    ```
