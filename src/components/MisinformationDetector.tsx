@@ -16,8 +16,20 @@ const instructionsAlert = (
     <AlertTitle>
       <strong>Welcome to Polygraph!</strong>
     </AlertTitle>
-    Type some text into the field below and click submit to find out if it
-    contains misinformation.
+    <Box
+      sx={{
+        display: {
+          xl: 'inline',
+          lg: 'inline',
+          md: 'inline',
+          sm: 'inline',
+          xs: 'none',
+        },
+      }}
+    >
+      Type some text into the field below and click submit to find out if it
+      contains misinformation.
+    </Box>
   </Alert>
 );
 
@@ -29,7 +41,19 @@ const noMisinformationAlert = (
     <AlertTitle>
       <strong>No misinformation detected!</strong>
     </AlertTitle>
-    Our analysis has not found any evidence of misinformation in this text.
+    <Box
+      sx={{
+        display: {
+          xl: 'inline',
+          lg: 'inline',
+          md: 'inline',
+          sm: 'inline',
+          xs: 'none',
+        },
+      }}
+    >
+      Our analysis has not found any evidence of misinformation in this text.
+    </Box>
   </Alert>
 );
 
@@ -41,8 +65,20 @@ const misinformationAlert = (
     <AlertTitle>
       <strong>Misinformation detected!</strong>
     </AlertTitle>
-    Our analysis has determined that there is a high likelihood that this text
-    contains some misinformation.
+    <Box
+      sx={{
+        display: {
+          xl: 'inline',
+          lg: 'inline',
+          md: 'inline',
+          sm: 'inline',
+          xs: 'none',
+        },
+      }}
+    >
+      Our analysis has determined that there is a high likelihood that this text
+      contains some misinformation.
+    </Box>
   </Alert>
 );
 
@@ -86,14 +122,26 @@ function MisinformationDetector() {
           multiline
           maxRows={Infinity}
           onChange={onTextUpdate}
-          inputProps={{ sx: { minHeight: '450px' } }}
+          inputProps={{
+            sx: {
+              minHeight: {
+                xl: '450px',
+                lg: '400px',
+                md: '300px',
+                sm: '90%',
+                xs: '75%',
+              },
+            },
+          }}
         />
         <Card variant="outlined">
           <Box
             sx={{
               display: 'flex',
-              flexDirection: { xl: 'row', lg: 'row', sm: 'column' },
-              gap: '8px',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              gap: { xl: '8px', lg: '8px', md: '8px', sm: '0px', xs: '0px' },
+              justifyContent: 'center',
             }}
           >
             <Tabs
@@ -124,7 +172,16 @@ function MisinformationDetector() {
             </Tabs>
             <Button
               data-testid="misinformation-detector-submit-button"
-              sx={{ marginLeft: 'auto', marginRight: '8px' }}
+              sx={{
+                marginLeft: {
+                  xl: 'auto',
+                  lg: 'auto',
+                  md: 'auto',
+                  sm: '0px',
+                  xs: '0px',
+                },
+                marginRight: '8px',
+              }}
               disabled={
                 containsProfanity(text) || countWords(text) > MAX_WORD_COUNT
               }

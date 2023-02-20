@@ -11,7 +11,13 @@ function Polygraph() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xl: 'row', lg: 'row', sm: 'column' },
+          flexDirection: {
+            xl: 'row',
+            lg: 'row',
+            md: 'row',
+            sm: 'column',
+            xs: 'column',
+          },
           justifyContent: 'center',
           flex: 1,
           marginTop: '10px',
