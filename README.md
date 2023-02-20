@@ -15,11 +15,11 @@ Our project is a website where users can input text (such as facts or news) and 
 
 3. Text validation. The text that users input will be vetted and verified for acceptable language and profanity to encourage result accuracy.
 
-   i.  Partially Operational: Length of 500 words is operational, profanity is not fully operational - but for test case.
+   i.  Operational.
 
 4. User history. Once users log in with their credentials, they can view their history of previous inputted text along with the corresponding accuracy evaluations.
 
-   i.  Non-operational: Database can store and interact with user history, but endpoint to UI and presentation not implemented.
+   i.  Non-operational: Database can store and interact with user history, but endpoint to UI not implemented.
 
 ## Developer Guidelines
 ### Project Structure
@@ -63,7 +63,7 @@ $ npm test -- --coverage
 This will run all test suites and generate a code coverage report.
 
 New test suites can be added to by creating a file suffixed with .test.jsx anywhere in the /src/ directory. Individual
-test cases should follow the this format:
+test cases should follow this format:
 ```js
 test('test title/description', () => {
   test body
