@@ -46,7 +46,7 @@ function UserHistory() {
         sx={{ overflow: 'auto', height: '100%' }}
         subheader={
           <ListSubheader
-            key="hello"
+            key="listheaderkey"
             sx={{ backgroundColor: 'rgb(229, 246, 253)', color: '#014361' }}
           >
             <Typography sx={{ lineHeight: 'unset', fontWeight: 'bold' }}>
