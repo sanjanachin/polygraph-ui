@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-prettier": "^4.2.1",
+    "latest-version": "^7.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.7.0",
@@ -39,11 +40,23 @@
       "project": "./tsconfig.json"
     },
     "rules": {
-      "quotes": ["error", "single"],
-      "prettier/prettier": [
-        "error", {"singleQuote": true, "endOfLine": "auto"}
+      "quotes": [
+        "error",
+        "single"
       ],
-      "react/jsx-no-duplicate-props": ["error", { "ignoreCase": false }]
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "endOfLine": "auto"
+        }
+      ],
+      "react/jsx-no-duplicate-props": [
+        "error",
+        {
+          "ignoreCase": false
+        }
+      ]
     }
   },
   "browserslist": {
