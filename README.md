@@ -3,6 +3,16 @@
 ## Polygraph Project Goals
 Our project is a website where users can input text (such as facts or news) and check it for accuracy. We will fine tune a GPT-3 model to evaluate the accuracy of inputted text, and provide users with an evaluation of whether their text is accurate or not, along with an explanation of why. Our workflow will look something like this: a user logs in to the fact checker website using their credentials. Once they log in, they see a text box where they can input text and receive an evaluation of its accuracy. They can also view their history (which is their previously inputted text along with the corresponding evaluations).
 
+## User Guidelines
+### Setup
+If you're using a version of this project that is hosted by someone else, skip this section. If you don't have access to an existing host, see [here](#setup-1) and [here](#starting-a-development-server) for instructions on setting up a development server.
+
+### Usage
+1. Navigate to the correct address in your web browser.
+2. Type or copy-paste any statements that you want evaluated for misinformation in the text field labelled 'Start typing, or copy and paste your document here.'
+3. Click the button to the bottom right of the text field labelled 'Submit.'
+4. Wait a few seconds, then look for an evaluation (misinformation/not misinformation) above the text field.
+
 ### Features
 1. User accounts. Users will be able to create accounts with which they can use to gain access to our website fact checker.
 
@@ -11,15 +21,21 @@ Our project is a website where users can input text (such as facts or news) and 
 
 2. False text detection. Once users log in, they can input text and receive an evaluation of its accuracy along with an explanation of the evaluation.
 
-   i.  Operational: Fully connected enpoints with feedback, although not trained on dataset.
+   i.  Operational: Fully connected endpoints with feedback, although not trained on dataset.
 
 3. Text validation. The text that users input will be vetted and verified for acceptable language and profanity to encourage result accuracy.
 
-   i.  Operational.
+   i.  Operational: Validity of user input is displayed below input field.
 
 4. User history. Once users log in with their credentials, they can view their history of previous inputted text along with the corresponding accuracy evaluations.
 
    i.  Non-operational: Database can store and interact with user history, but endpoint to UI not implemented.
+
+### Reporting a bug
+Report all bugs as GitHub issues.
+
+### Known bugs
+Known bugs can be found [here](https://docs.google.com/document/d/1YKue4Q9jE8VMdDHGTT1DMFyiaw8GF5UWjrJQ4gYJcew/edit?usp=sharing).
 
 ## Developer Guidelines
 ### Project Structure
