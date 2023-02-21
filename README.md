@@ -16,8 +16,7 @@ If you're using a version of this project that is hosted by someone else, skip t
 ### Features
 1. User accounts. Users will be able to create accounts with which they can use to gain access to our website fact checker.
 
-   i.  Non-operational: Firebase login authentication system not yet implemented
-
+   i.  Non-operational: Firebase login authentication system not yet implemented.
 
 2. False text detection. Once users log in, they can input text and receive an evaluation of its accuracy along with an explanation of the evaluation.
 
@@ -25,7 +24,7 @@ If you're using a version of this project that is hosted by someone else, skip t
 
 3. Text validation. The text that users input will be vetted and verified for acceptable language and profanity to encourage result accuracy.
 
-   i.  Operational: Validity of user input is displayed below input field.
+   i.  Operational. Maximum query length and profanity filter have been implemented and are displayed below input field.
 
 4. User history. Once users log in with their credentials, they can view their history of previous inputted text along with the corresponding accuracy evaluations.
 
@@ -66,7 +65,7 @@ Main Directory Contents:
 ### Starting a Development Server
 1. Make sure you have cloned and are running the [polygraph backend](https://github.com/sanjanachin/polygraph)
 
-2. Run the app locally using the following command
+2. Run the app locally using the following command:
    ```bash
    $ npm run start
    ```
