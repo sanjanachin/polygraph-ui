@@ -59,7 +59,7 @@ import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 
                           variant="outline-success"
                           type="submit"
                           onClick={() => {
-                            signInWithEmailAndPassword(loginEmail, loginPassword);
+                            signInWithEmailAndPassword(auth, loginEmail, loginPassword);
                           } }
                         >
                           Login
