@@ -11,6 +11,7 @@ const pages = [
   { display: 'Home', path: '/', id: 'home-button' },
   { display: 'About', path: '/about', id: 'about-button' },
   { display: 'Login', path: '/login', id: 'login-button' },
+  { display: 'Logout', path: '/logout', id: 'logout-button' },
 ];
 
 function NavBar() {
