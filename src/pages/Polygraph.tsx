@@ -36,7 +36,7 @@ function Polygraph() {
           sx={{ flexBasis: '75%', marginRight: '10px' }}
           data-testid="misinformation-detector-flex-item"
         >
-          <MisinformationDetector />
+          <MisinformationDetector user="" />
         </Box>
 
         <Box sx={{ flexBasis: '25%' }} data-testid="user-history-flex-item">
