@@ -1,4 +1,5 @@
 export type MisinformationCheckRequest = {
+  user: string;
   text: string;
 };
 
@@ -7,7 +8,7 @@ export type MisinformationCheckResponse = {
 };
 
 export type UserHistoryRequest = {
-  user: string; // TODO: This is probably not what the request should look like
+  user: string;
 };
 
 export type UserHistoryResponse = {

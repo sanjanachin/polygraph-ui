@@ -13,18 +13,24 @@ import { getUserHistory } from '../api/api';
 import { UserHistoryItem } from '../api/apiTypes';
 import cyrb53 from '../util/hash';
 
-function UserHistory() {
+interface UserHistoryProps {
+  user: string;
+}
+
+function UserHistory(props: UserHistoryProps) {
   const [entries, setEntries] = React.useState<UserHistoryItem[]>([]);
   const [selectedEntry, setSelectedEntry] = React.useState(-1);
 
+  const { user } = props;
+
   React.useEffect(() => {
     async function fetchEntries() {
-      const request = { user: 'test' }; // TODO
+      const request = { user };
       const response = await getUserHistory(request);
       setEntries(response.queries);
     }
     fetchEntries();
-  }, []);
+  }, [user]);
 
   const handleHistoryItemClick = (idx: number) => {
     if (selectedEntry === idx) {

@@ -4,12 +4,12 @@ import {
   UserHistoryRequest,
   UserHistoryResponse,
 } from './apiTypes';
-import { MISINFORMATION_CHECK_ENDPOINT, HISTORY_ENDPOINT } from './endpoints';
+import { MISINFORMATION_CHECK_URL, HISTORY_URL } from './endpoints';
 
 export function checkMisinformation(
   requestData: MisinformationCheckRequest
 ): Promise<MisinformationCheckResponse> {
-  return fetch(MISINFORMATION_CHECK_ENDPOINT, {
+  return fetch(MISINFORMATION_CHECK_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ export function checkMisinformation(
 export function getUserHistory(
   requestData: UserHistoryRequest
 ): Promise<UserHistoryResponse> {
-  return fetch(HISTORY_ENDPOINT, {
+  return fetch(HISTORY_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

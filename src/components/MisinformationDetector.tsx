@@ -85,7 +85,11 @@ const misinformationAlert = (
 
 const countWords = (input: string) => input.trim().split(/\s+/).length;
 
-function MisinformationDetector() {
+interface MisinformationDetectorProps {
+  user: string;
+}
+
+function MisinformationDetector(props: MisinformationDetectorProps) {
   const [alert, setAlert] = React.useState(instructionsAlert);
   const [text, setText] = React.useState('');
 
@@ -99,7 +103,8 @@ function MisinformationDetector() {
   const containsProfanity = (input: string) => filter.isProfane(input);
 
   const submit = async () => {
-    const request = { text };
+    const { user } = props;
+    const request = { text, user };
     const response = await checkMisinformation(request);
     if (response.valid) {
       setAlert(noMisinformationAlert);
