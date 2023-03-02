@@ -40,7 +40,7 @@ function Polygraph() {
         </Box>
 
         <Box sx={{ flexBasis: '25%' }} data-testid="user-history-flex-item">
-          <UserHistory />
+          <UserHistory user="" />
         </Box>
       </Box>
     </div>

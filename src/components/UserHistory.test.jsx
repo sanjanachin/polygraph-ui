@@ -27,7 +27,7 @@ test('valid entry renders correctly', async () => {
       json: () => Promise.resolve({ queries: [validEntry] }),
     })
   );
-  render(<UserHistory />);
+  render(<UserHistory user="" />);
   await waitFor(() => {
     expect(screen.getByTestId('user-history-entry')).toBeInTheDocument();
   });
@@ -44,7 +44,7 @@ test('invalid entry renders correctly', async () => {
       json: () => Promise.resolve({ queries: [invalidEntry] }),
     })
   );
-  render(<UserHistory />);
+  render(<UserHistory user="" />);
   await waitFor(() => {
     expect(screen.getByTestId('user-history-entry')).toBeInTheDocument();
   });
@@ -61,7 +61,7 @@ test('multiple entries render correctly', async () => {
       json: () => Promise.resolve({ queries: [validEntry, invalidEntry] }),
     })
   );
-  render(<UserHistory />);
+  render(<UserHistory user="" />);
   await waitFor(() => {
     expect(
       screen.queryAllByTestId('user-history-entry').length
@@ -80,7 +80,7 @@ test('history entries expand when clicked', async () => {
       json: () => Promise.resolve({ queries: [longInvalidEntry] }),
     })
   );
-  render(<UserHistory />);
+  render(<UserHistory user="" />);
   await waitFor(() => {
     expect(screen.getByTestId('user-history-entry')).toBeInTheDocument();
   });
