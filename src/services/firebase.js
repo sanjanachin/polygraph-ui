@@ -37,7 +37,7 @@ export const polygraphSignInWithEmailAndPassword = async (email, password) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {
-    alert(err.message);
+    // Do nothing. User should try again.
   }
 };
 
@@ -45,7 +45,7 @@ export const resetPassword = async (email) => {
   try {
     await sendPasswordResetEmail(auth, email);
   } catch (err) {
-    alert(err.message);
+    // Do nothing. User should try again.
   }
 };
 
@@ -60,6 +60,6 @@ export const registerWithEmailAndPassword = async (name, email, password) => {
       email,
     });
   } catch (err) {
-    alert(err.message);
+    // Do nothing. User should try again.
   }
 };

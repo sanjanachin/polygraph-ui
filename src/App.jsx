@@ -27,7 +27,7 @@ function App() {
       await signOut(auth);
       setUser(null);
     } catch (error) {
-      console.error('Error logging out', error);
+      // Do nothing. User should try again.
     }
   };
 
