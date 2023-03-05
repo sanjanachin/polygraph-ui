@@ -8,7 +8,13 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore/lite';
 import { getAuth, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 
 const firebaseConfig = {
-// Ommited for security reasons. Will update later. 
+  apiKey: str(os.environ.get("FIREBASE_API_KEY")),
+  authDomain: 'polygraph-792ef.firebaseapp.com',
+  projectId: 'polygraph-792ef',
+  storageBucket: 'polygraph-792ef.appspot.com',
+  messagingSenderId: '909822764908',
+  appId: '1:909822764908:web:bf958968989380770f7549',
+  measurementId: 'G-CVN8CXJHED'
 };
 
 // Initialize Firebase
