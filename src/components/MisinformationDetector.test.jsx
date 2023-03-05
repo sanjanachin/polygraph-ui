@@ -6,15 +6,16 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react';
+import { words as profanity } from 'bad-words/lib/lang.json';
 import MisinformationDetector from './MisinformationDetector';
-import { profanity, MAX_WORD_COUNT } from './constants';
+import MAX_WORD_COUNT from './constants';
 
 afterEach(() => {
   cleanup();
 });
 
 test('profanity detector detects profanity', () => {
-  render(<MisinformationDetector />);
+  render(<MisinformationDetector user="" />);
   const textInput = screen.getByRole('textbox');
   expect(textInput).toBeInTheDocument();
   fireEvent.change(textInput, { target: { value: profanity[0] } });
@@ -29,7 +30,7 @@ test('profanity detector detects profanity', () => {
 });
 
 test('profanity detector does not mislabel clean text', () => {
-  render(<MisinformationDetector />);
+  render(<MisinformationDetector user="" />);
   const textInput = screen.getByRole('textbox');
   expect(textInput).toBeInTheDocument();
   fireEvent.change(textInput, { target: { value: 'some nice, clean text.' } });
@@ -44,7 +45,7 @@ test('profanity detector does not mislabel clean text', () => {
 });
 
 test('word count display accurately tracks real word count', () => {
-  render(<MisinformationDetector />);
+  render(<MisinformationDetector user="" />);
   const textInput = screen.getByRole('textbox');
   expect(textInput).toBeInTheDocument();
   fireEvent.change(textInput, {
@@ -62,7 +63,7 @@ test('word count display accurately tracks real word count', () => {
 });
 
 test('word count display disables submit button for long text inputs', () => {
-  render(<MisinformationDetector />);
+  render(<MisinformationDetector user="" />);
   const textInput = screen.getByRole('textbox');
   expect(textInput).toBeInTheDocument();
   fireEvent.change(textInput, {
@@ -76,7 +77,7 @@ test('word count display disables submit button for long text inputs', () => {
 });
 
 test('word count display does not disable submit button for short text inputs', () => {
-  render(<MisinformationDetector />);
+  render(<MisinformationDetector user="" />);
   const textInput = screen.getByRole('textbox');
   expect(textInput).toBeInTheDocument();
   fireEvent.change(textInput, {
@@ -96,7 +97,7 @@ test('misinformation alert appears if server prompts it', async () => {
       json: () => Promise.resolve({ valid: false }),
     })
   );
-  render(<MisinformationDetector />);
+  render(<MisinformationDetector user="" />);
   const textInput = screen.getByRole('textbox');
   expect(textInput).toBeInTheDocument();
   fireEvent.change(textInput, {
@@ -124,7 +125,7 @@ test('no misinformation alert appears if server prompts it', async () => {
       json: () => Promise.resolve({ valid: true }),
     })
   );
-  render(<MisinformationDetector />);
+  render(<MisinformationDetector user="" />);
   const textInput = screen.getByRole('textbox');
   expect(textInput).toBeInTheDocument();
   fireEvent.change(textInput, {
@@ -146,7 +147,7 @@ test('no misinformation alert appears if server prompts it', async () => {
 });
 
 test('info alert appears on initial component render', () => {
-  render(<MisinformationDetector />);
+  render(<MisinformationDetector user="" />);
   screen.getByTestId('misinformation-detector-info-alert');
 });
 
@@ -157,7 +158,7 @@ test('info alert reappears if text is changed after result is displayed', async 
       json: () => Promise.resolve({ valid: false }),
     })
   );
-  render(<MisinformationDetector />);
+  render(<MisinformationDetector user="" />);
   const textInput = screen.getByRole('textbox');
   expect(textInput).toBeInTheDocument();
   fireEvent.change(textInput, {

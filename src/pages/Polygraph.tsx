@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import MisinformationDetector from '../components/MisinformationDetector';
+import UserHistory from '../components/UserHistory';
 import NavBar from '../components/NavBar';
 
 function Polygraph() {
@@ -11,24 +11,37 @@ function Polygraph() {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: { xl: 'row', lg: 'row', sm: 'column' },
+          flexDirection: {
+            xl: 'row',
+            lg: 'row',
+            md: 'row',
+            sm: 'column',
+            xs: 'column',
+          },
           justifyContent: 'center',
           flex: 1,
           marginTop: '10px',
           marginLeft: '10%',
           marginRight: '10%',
+          maxHeight: {
+            xl: '85vh',
+            lg: '85vh',
+            md: '85vh',
+            sm: '',
+            xs: '',
+          },
         }}
       >
         <Box
           sx={{ flexBasis: '75%', marginRight: '10px' }}
-          data-testid="history-parent"
+          data-testid="misinformation-detector-flex-item"
         >
-          <MisinformationDetector />
+          <MisinformationDetector user="" />
         </Box>
 
-        <Card sx={{ flexBasis: '25%' }} data-testid="user-history-parent">
-          history
-        </Card>
+        <Box sx={{ flexBasis: '25%' }} data-testid="user-history-flex-item">
+          <UserHistory user="" />
+        </Box>
       </Box>
     </div>
   );
