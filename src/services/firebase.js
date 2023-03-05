@@ -11,7 +11,7 @@ import {
 } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: str(os.environ.get('FIREBASE_API_KEY')),
+  apiKey: process.env('FIREBASE_API_KEY'),
   authDomain: 'polygraph-792ef.firebaseapp.com',
   projectId: 'polygraph-792ef',
   storageBucket: 'polygraph-792ef.appspot.com',
