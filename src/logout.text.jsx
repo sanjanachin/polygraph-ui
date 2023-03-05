@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Logout from './logout';
+import Logout from './pages/Logout';
 
 test('logout page renders', () => {
   render(<Logout />);

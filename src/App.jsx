@@ -5,8 +5,8 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import RouteList from './RouteList';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
+import RouteList from './RouteList';
 import { auth } from './services/firebase';
 import Login from './pages/LoginPage';
 import Logout from './pages/Logout';
@@ -16,8 +16,8 @@ function App() {
   const [user, setUser] = React.useState(null);
 
   React.useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (newUser) => {
+      setUser(newUser);
     });
     return unsubscribe;
   }, []);
@@ -38,7 +38,10 @@ function App() {
         {user && (
           <>
             <Route path="/" element={<RouteList />} />
-            <Route path="/logout" element={<Logout handleLogout={handleLogout} />} />
+            <Route
+              path="/logout"
+              element={<Logout handleLogout={handleLogout} />}
+            />
             <Route path="/*" element={<Navigate to="/" />} />
           </>
         )}

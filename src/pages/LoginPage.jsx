@@ -1,30 +1,33 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+
 import {
-    registerWithEmailAndPassword,
-    auth
-  } from "../services/firebase";
-import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth';
-  import Form from "react-bootstrap/Form";
-  import Button from "react-bootstrap/Button";
-  import Card from "react-bootstrap/Card";
-  import NavBar from '../components/NavBar';
-  
-  import "../App.css";
-  
-  const Login = () => {
-    const provider = new GoogleAuthProvider();
-  
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-  
-    const [loginEmail, setLoginEmail] = useState("");
-    const [loginPassword, setLoginPassword] = useState("");
-    return (
-      <><NavBar /><div className="container-fluid" style={{ marginTop: "10%" }}>
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import { registerWithEmailAndPassword, auth } from '../services/firebase';
+import NavBar from '../components/NavBar';
+
+import '../App.css';
+
+function Login() {
+  const provider = new GoogleAuthProvider();
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  return (
+    <>
+      <NavBar />
+      <div className="container-fluid" style={{ marginTop: '10%' }}>
         <div className="row">
-          <div className="col col-2"></div>
+          <div className="col col-2" />
           <div className="col col-8">
             <div className="row">
               <div className="col col-6">
@@ -38,37 +41,47 @@ import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 
                           type="email"
                           placeholder="Enter email"
                           value={loginEmail}
-                          onChange={(e) => setLoginEmail(e.target.value)} />
+                          onChange={(e) => setLoginEmail(e.target.value)}
+                        />
                         <Form.Text className="text-muted">
-                          We'll never share your email with anyone else.
+                          We&apos;ll never share your email with anyone else.
                         </Form.Text>
                       </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Group
+                        className="mb-3"
+                        controlId="formBasicPassword"
+                      >
                         <Form.Label>Password</Form.Label>
                         <Form.Control
                           type="password"
                           placeholder="Password"
                           value={loginPassword}
-                          onChange={(e) => setLoginPassword(e.target.value)} />
+                          onChange={(e) => setLoginPassword(e.target.value)}
+                        />
                       </Form.Group>
-                      <hr style={{ margin: "5%" }} />
+                      <hr style={{ margin: '5%' }} />
 
                       <div className="d-grid gap-2">
                         <Button
                           variant="outline-success"
                           type="submit"
                           onClick={() => {
-                            signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-                          } }
+                            signInWithEmailAndPassword(
+                              auth,
+                              loginEmail,
+                              loginPassword
+                            );
+                          }}
                         >
                           Login
                         </Button>
                         <Button
                           variant="outline-primary"
-                          onClick={ () => signInWithPopup(auth, provider) }
+                          onClick={() => signInWithPopup(auth, provider)}
                         >
-                          <i className="fab fa-google"></i>Sign-in with Goolge
+                          <i className="fab fa-google" />
+                          Sign-in with Goolge
                         </Button>
                       </div>
                     </div>
@@ -87,7 +100,8 @@ import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 
                           type="name"
                           placeholder="Enter name"
                           value={name}
-                          onChange={(e) => setName(e.target.value)} />
+                          onChange={(e) => setName(e.target.value)}
+                        />
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
@@ -95,18 +109,23 @@ import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 
                           type="email"
                           placeholder="Enter email"
                           value={email}
-                          onChange={(e) => setEmail(e.target.value)} />
+                          onChange={(e) => setEmail(e.target.value)}
+                        />
                       </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Group
+                        className="mb-3"
+                        controlId="formBasicPassword"
+                      >
                         <Form.Label>Password</Form.Label>
                         <Form.Control
                           type="password"
                           placeholder="Password"
                           value={password}
-                          onChange={(e) => setPassword(e.target.value)} />
+                          onChange={(e) => setPassword(e.target.value)}
+                        />
                       </Form.Group>
-                      <hr style={{ margin: "5%" }} />
+                      <hr style={{ margin: '5%' }} />
 
                       <div className="d-grid gap-2">
                         <Button
@@ -114,7 +133,7 @@ import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 
                           type="submit"
                           onClick={() => {
                             registerWithEmailAndPassword(name, email, password);
-                          } }
+                          }}
                         >
                           Register
                         </Button>
@@ -125,10 +144,11 @@ import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 
               </div>
             </div>
           </div>
-          <div className="col-col-2"></div>
+          <div className="col-col-2" />
         </div>
-      </div></>
-    );
-  };
-  
-  export default Login;
+      </div>
+    </>
+  );
+}
+
+export default Login;

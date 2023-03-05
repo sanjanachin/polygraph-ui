@@ -1,9 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Logout({ handleLogout }) {
+interface LogoutProps {
+  handleLogout: () => any;
+}
+
+function Logout(props: LogoutProps) {
   const [isLoggingOut, setIsLoggingOut] = React.useState(false);
   const navigate = useNavigate();
+
+  const { handleLogout } = props;
 
   React.useEffect(() => {
     const logout = async () => {
