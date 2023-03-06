@@ -30,5 +30,5 @@ jobs:
     - run: npm run build --if-present
     - run: npm test -- --coverage
       env:
-        FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+        REACT_APP_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
     - run: npm run lint

@@ -4,7 +4,12 @@ import MisinformationDetector from '../components/MisinformationDetector';
 import UserHistory from '../components/UserHistory';
 import NavBar from '../components/NavBar';
 
-function Polygraph() {
+interface PolygraphProps {
+  user: string;
+}
+
+function Polygraph(props: PolygraphProps) {
+  const { user } = props;
   return (
     <div data-testid="home-page">
       <NavBar />
@@ -36,11 +41,11 @@ function Polygraph() {
           sx={{ flexBasis: '75%', marginRight: '10px' }}
           data-testid="misinformation-detector-flex-item"
         >
-          <MisinformationDetector user="" />
+          <MisinformationDetector user={user} />
         </Box>
 
         <Box sx={{ flexBasis: '25%' }} data-testid="user-history-flex-item">
-          <UserHistory user="" />
+          <UserHistory user={user} />
         </Box>
       </Box>
     </div>
