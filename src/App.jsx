@@ -17,7 +17,7 @@ function App() {
 
   React.useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (newUser) => {
-      setUser(newUser);
+      setUser(newUser.email);
     });
     return unsubscribe;
   }, []);
@@ -37,7 +37,7 @@ function App() {
         {!user && <Route path="/" element={<Login />} />}
         {user && (
           <>
-            <Route path="/" element={<RouteList />} />
+            <Route path="/" element={<RouteList user={user} />} />
             <Route
               path="/logout"
               element={<Logout handleLogout={handleLogout} />}

@@ -16,8 +16,8 @@ const firebaseConfig = {
   projectId: 'polygraph-792ef',
   storageBucket: 'polygraph-792ef.appspot.com',
   messagingSenderId: '909822764908',
-  appId: '1:909822764908:web:bf958968989380770f7549',
-  measurementId: 'G-CVN8CXJHED',
+  appId: '1:909822764908:web:e5010f4c32289c9c0f7549',
+  measurementId: 'G-NCN4WHS511',
 };
 
 // Initialize Firebase
