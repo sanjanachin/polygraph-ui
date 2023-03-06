@@ -17,7 +17,9 @@ function App() {
 
   React.useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (newUser) => {
-      setUser(newUser.email);
+      if (newUser) {
+        setUser(newUser.email);
+      }
     });
     return unsubscribe;
   }, []);
