@@ -1,11 +1,51 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import RouteList from './RouteList';
+import { auth } from './services/firebase';
+import Login from './pages/LoginPage';
+import Logout from './pages/Logout';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [user, setUser] = React.useState(null);
+
+  React.useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (newUser) => {
+      setUser(newUser);
+    });
+    return unsubscribe;
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setUser(null);
+    } catch (error) {
+      // Do nothing. User should try again.
+    }
+  };
+
   return (
     <Router>
-      <RouteList />
+      <Routes>
+        {!user && <Route path="/" element={<Login />} />}
+        {user && (
+          <>
+            <Route path="/" element={<RouteList />} />
+            <Route
+              path="/logout"
+              element={<Logout handleLogout={handleLogout} />}
+            />
+            <Route path="/*" element={<Navigate to="/" />} />
+          </>
+        )}
+      </Routes>
     </Router>
   );
 }
