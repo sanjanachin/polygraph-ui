@@ -12,7 +12,7 @@ export type UserHistoryRequest = {
 };
 
 export type UserHistoryResponse = {
-  queries: UserHistoryItem[];
+  history: UserHistoryItem[];
 };
 
 export type UserHistoryItem = {

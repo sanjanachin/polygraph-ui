@@ -27,7 +27,7 @@ function UserHistory(props: UserHistoryProps) {
     async function fetchEntries() {
       const request = { user };
       const response = await getUserHistory(request);
-      setEntries(response.queries);
+      setEntries(response.history);
     }
     fetchEntries();
   }, [user]);
@@ -62,7 +62,7 @@ function UserHistory(props: UserHistoryProps) {
         }
       >
         {entries.map((entry, idx) => (
-          <div key={cyrb53(entry, idx)}>
+          <div key={cyrb53(JSON.stringify(entry), idx)}>
             <ListItemButton
               onClick={() => handleHistoryItemClick(idx)}
               data-testid="user-history-entry"

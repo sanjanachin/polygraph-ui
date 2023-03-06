@@ -24,7 +24,7 @@ test('valid entry renders correctly', async () => {
   global.fetch = jest.fn(() =>
     Promise.resolve({
       ok: true,
-      json: () => Promise.resolve({ queries: [validEntry] }),
+      json: () => Promise.resolve({ history: [validEntry] }),
     })
   );
   render(<UserHistory user="" />);
@@ -41,7 +41,7 @@ test('invalid entry renders correctly', async () => {
   global.fetch = jest.fn(() =>
     Promise.resolve({
       ok: true,
-      json: () => Promise.resolve({ queries: [invalidEntry] }),
+      json: () => Promise.resolve({ history: [invalidEntry] }),
     })
   );
   render(<UserHistory user="" />);
@@ -58,7 +58,7 @@ test('multiple entries render correctly', async () => {
   global.fetch = jest.fn(() =>
     Promise.resolve({
       ok: true,
-      json: () => Promise.resolve({ queries: [validEntry, invalidEntry] }),
+      json: () => Promise.resolve({ history: [validEntry, invalidEntry] }),
     })
   );
   render(<UserHistory user="" />);
@@ -77,7 +77,7 @@ test('history entries expand when clicked', async () => {
   global.fetch = jest.fn(() =>
     Promise.resolve({
       ok: true,
-      json: () => Promise.resolve({ queries: [longInvalidEntry] }),
+      json: () => Promise.resolve({ history: [longInvalidEntry] }),
     })
   );
   render(<UserHistory user="" />);
