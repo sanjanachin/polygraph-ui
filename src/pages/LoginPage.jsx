@@ -25,7 +25,11 @@ function Login() {
   return (
     <>
       <NavBar />
-      <div className="container-fluid" style={{ marginTop: '10%' }}>
+      <div
+        className="container-fluid"
+        style={{ marginTop: '10%' }}
+        data-testid="login-page"
+      >
         <div className="row">
           <div className="col col-2" />
           <div className="col col-8">
