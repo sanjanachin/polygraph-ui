@@ -14,6 +14,14 @@ afterEach(() => {
   cleanup();
 });
 
+test('submit button is disabled when input box is empty', () => {
+  render(<MisinformationDetector user="" />);
+  const submitButton = screen.getByTestId(
+    'misinformation-detector-submit-button'
+  );
+  expect(submitButton).toHaveAttribute('disabled');
+});
+
 test('profanity detector detects profanity', () => {
   render(<MisinformationDetector user="" />);
   const textInput = screen.getByRole('textbox');

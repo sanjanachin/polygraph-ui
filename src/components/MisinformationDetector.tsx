@@ -83,7 +83,12 @@ const misinformationAlert = (
   </Alert>
 );
 
-const countWords = (input: string) => input.trim().split(/\s+/).length;
+const countWords = (input: string) => {
+  if (input === '') {
+    return 0;
+  }
+  return input.trim().split(/\s+/).length;
+};
 
 interface MisinformationDetectorProps {
   user: string;
@@ -183,7 +188,9 @@ function MisinformationDetector(props: MisinformationDetectorProps) {
                 marginRight: '8px',
               }}
               disabled={
-                containsProfanity(text) || countWords(text) > MAX_WORD_COUNT
+                containsProfanity(text) ||
+                countWords(text) > MAX_WORD_COUNT ||
+                countWords(text) <= 0
               }
               onClick={submit}
             >
