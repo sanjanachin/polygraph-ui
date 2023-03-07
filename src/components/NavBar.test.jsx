@@ -6,16 +6,10 @@ import NavBar from './NavBar';
 const pages = [
   { display: 'Home', path: '/', id: 'home-button', destId: 'home-page' },
   {
-    display: 'About',
-    path: '/about',
-    id: 'about-button',
-    destId: 'about-page',
-  },
-  {
-    display: 'Login',
-    path: '/login',
-    id: 'login-button',
-    destId: 'login-page',
+    display: 'Logout',
+    path: '/logout',
+    id: 'logout-button',
+    destId: 'logout-page',
   },
 ];
 

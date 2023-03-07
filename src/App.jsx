@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import RouteList from './RouteList';
 import { auth } from './services/firebase';
@@ -39,12 +34,11 @@ function App() {
         {!user && <Route path="/" element={<Login />} />}
         {user && (
           <>
-            <Route path="/" element={<RouteList user={user} />} />
             <Route
               path="/logout"
               element={<Logout handleLogout={handleLogout} />}
             />
-            <Route path="/*" element={<Navigate to="/" />} />
+            <Route path="*" element={<RouteList user={user} />} />
           </>
         )}
       </Routes>

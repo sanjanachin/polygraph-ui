@@ -6,11 +6,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import ABOUT_DESTINATION from '../pages/constants';
 
 const pages = [
   { display: 'Home', path: '/', id: 'home-button' },
-  { display: 'About', path: '/about', id: 'about-button' },
-  { display: 'Login', path: '/login', id: 'login-button' },
+  {
+    display: 'About',
+    path: ABOUT_DESTINATION,
+    id: 'about-button',
+    external: true,
+  },
   { display: 'Logout', path: '/logout', id: 'logout-button' },
 ];
 
@@ -45,13 +50,15 @@ function NavBar() {
               <Button
                 key={page.id}
                 data-testid={page.id}
-                component={Link}
+                component={page.external ? undefined : Link}
                 to={page.path}
+                href={page.path}
                 sx={{
                   my: 2,
                   color: 'white',
                   display: 'block',
                   boxShadow: 'none',
+                  ':hover': { color: 'white' },
                 }}
                 variant="contained"
               >
