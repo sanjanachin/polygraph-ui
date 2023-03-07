@@ -62,6 +62,9 @@ Main Directory Contents:
    $ npm install
    ```
 
+5. Add a new environment variable to your development environment called REACT_APP_FIREBASE_API_KEY with your
+   Firebase API key as its value.
+
 ### Starting a Development Server
 1. Make sure you have cloned and are running the [polygraph backend](https://github.com/sanjanachin/polygraph)
 
@@ -75,7 +78,8 @@ Test suites can be run from the command line with the following command:
 ```bash
 $ npm test -- --coverage
 ```
-This will run all test suites and generate a code coverage report.
+This will run all test suites and generate a code coverage report. Note that some tests will not pass until you have
+set the REACT_APP_FIREBASE_API_KEY environment variable to a valid API key.
 
 New test suites can be added to by creating a file suffixed with .test.jsx anywhere in the /src/ directory. Individual
 test cases should follow this format:
@@ -96,6 +100,7 @@ $ npm run lint
 This will check that your code follows this project's style guidelines.
 
 ### Building a Release Version
+Before attempting to build a release version, make sure that you have followed all of the steps in the [setup section](#setup-1).
 A release build of the project can be generated with the following command:
 ```bash
 $ npm run build
